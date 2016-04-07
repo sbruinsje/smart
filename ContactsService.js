@@ -20,7 +20,7 @@ contactsApp.service('ContactsService', ['$http','$q', function($http, $q) {
 	this.getContacts = function( groupId ){
 		var promise = this.getContactsInGroup( groupId ).then( function(){
 			return this.retrieveContacts( this.contactUrlsCurrentGroup ).then( function(){
-				//console.log( this.currentContactIds, this.contactInfo);
+				//console.log( "currentContactIds="+this.currentContactIds, this.contactInfo);
 			}.bind(this));
 		}.bind(this), function(){
 			console.log("failed to retrieve the contacts for given group. ");
@@ -53,6 +53,7 @@ contactsApp.service('ContactsService', ['$http','$q', function($http, $q) {
 	}
 
 	this.getContactDetails = function( contactId ){
+		console.log( contactId );
 		return this.contactInfo[contactId];
 	}
 	

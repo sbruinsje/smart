@@ -1,5 +1,12 @@
-.groupsContainer{
-	background-color: lightgray;
+.groupListContainer{
+	background-color: darkgray;
 }
 
+.contactListContainer{
+	background-color: lightgray;	
+}
+
+.contactContainer{
+	background-color: white;		
+}
 

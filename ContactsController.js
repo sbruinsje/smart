@@ -1,7 +1,7 @@
 contactsApp.controller('ContactsController', ['$scope', 'ContactsService', 'GroupsService', function($scope, ContactsService, GroupsService) {
 	GroupsService.retrieveGroups();
-	
-	$scope.getContact = ContactsService.getContactDetails.bind(ContactsService);
+	$scope.selectedContact = null;
+	$scope.getContactDetails = ContactsService.getContactDetails.bind(ContactsService);
 	$scope.retrieveGroups = GroupsService.retrieveGroups.bind(GroupsService);
 	$scope.groupsCurrentPage = GroupsService.groupsCurrentPage;
 	$scope.currentContactIds = ContactsService.currentContactIds;
@@ -13,7 +13,6 @@ contactsApp.controller('ContactsController', ['$scope', 'ContactsService', 'Grou
 	}
 
 	$scope.handleContactClick = function( contactId ){
-		ContactsService.useGroup( groupId );
-		ContactsService.getContacts( groupId );
+		$scope.selectedContact = ContactsService.getContactDetails( contactId );
 	}
 }]);

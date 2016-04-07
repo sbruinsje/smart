@@ -19,21 +19,24 @@
 	<body ng-app="contactsApp">
 		<div class="container-fluid" ng-controller="ContactsController">
 			<div class="row">
-				<div class="col-md-3 groupsContainer">
+				<div class="col-md-3 groupListContainer">
 					Groups
 					<!-- <input type="button" class="form-control btn-success" value="Retrieve" ng-click="retrieveGroups();" /> -->
 
 					<ul>
-						<li ng-repeat="group in groupsCurrentPage" ng-click="handleGroupClick(group.id)">{{ group.name }}</li>
+						<li ng-repeat="group in groupsCurrentPage" ng-click="handleGroupClick(group.id)" ng-show="groupsCurrentPage.length > 0">{{ group.name }}</li>
+						<li ng-show="groupsCurrentPage.length <= 0">No groups</li>
 					</ul>
 				</div>
-				<div class="col-md-3 contactsContainer">
+				<div class="col-md-3 contactListContainer">
 					<ul>
-						<li ng-repeat="contact in currentContactIds" ng-click="handleContactClick(contact.id)">{{ getContactDetails(contact.id).name }}</li>
+						<li ng-repeat="contactId in currentContactIds" ng-click="handleContactClick(contactId)" ng-show="currentContactIds.length > 0">{{ getContactDetails(contactId).name }}</li>
+						<li ng-show="groupsCurrentPage.length <= 0">No contacts in this group</li>
 					</ul>
 				</div>
-				<div class="col-md-6 contactsContainer">
-					<h1>tesst{{contact}}</h1>
+				<div class="col-md-6 contactContainer">
+					<h1>{{selectedContact.name}}</h1>
+					My id is {{ selectedContact.id }}
 				</div>
 			</div>
 		</div>
