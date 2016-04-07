@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title></title>
+		<!-- Jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!-- Angular -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript" src="GroupsService.js"></script>
+		<script type="text/javascript" src="ContactsService.js"></script>
+		<script type="text/javascript" src="ContactsController.js"></script>
+		<link href="style.css" rel="stylesheet" type="text/css"></link>	
+	</head>
+	<body ng-app="contactsApp">
+		<div class="container-fluid" ng-controller="ContactsController">
+			<div class="row">
+				<div class="col-md-3 groupsContainer">
+					Groups
+					<!-- <input type="button" class="form-control btn-success" value="Retrieve" ng-click="retrieveGroups();" /> -->
+
+					<ul>
+						<li ng-repeat="group in groupsCurrentPage" ng-click="handleGroupClick(group.id)">{{ group.name }}</li>
+					</ul>
+				</div>
+				<div class="col-md-9 contactsContainer">
+					<ul>
+						<li ng-repeat="contact in currentContacts">{{ contact.name }}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+</html>
+
+
+
+
